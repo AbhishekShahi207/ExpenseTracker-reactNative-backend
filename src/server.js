@@ -16,6 +16,9 @@ const PORT = ENV.PORT;
 app.use(express.json());
 app.use(rateLimiterMiddleware)
 
+app.get("/api/help",(req,res)=>{
+  res.status(200).json({status:"ok"})
+})
 
 
 //routes

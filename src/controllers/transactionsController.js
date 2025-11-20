@@ -6,7 +6,7 @@ export const getTransactionsByUserId = async (req, res) => {
   try {
     const { userId } = req.params;
     const transactions =
-      await sql`SELECT * FROM transactions WHERE user_id=${userId} ORDER BY created_at DESC`;
+      await sql`SELECT * FROM transactions WHERE user_id=${userId} ORDER BY created_at `;
     res.status(200).json(transactions);
   } catch (error) {
     console.log("Error in fetching transactions", error);
