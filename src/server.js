@@ -3,8 +3,13 @@ import { ENV } from "./config/env.js";
 import { rateLimiterMiddleware } from "./middleware/rateLimiter.js";
 import transactionRoute from "./routes/transactionsRoute.js"
 import { initDB } from "./config/db.js";
+import job from "./config/cron.js";
+import dotenv from "dotenv"
+dotenv.config()
 
 const app = express();
+if(process.env.NODE_ENV === "production") job.start()
+
 const PORT = ENV.PORT;
 
 //middleware
